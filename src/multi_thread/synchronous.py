@@ -15,9 +15,6 @@ PLACES = (
 def fetch_place(place):
     geocoded = client.geocode(place)[0]
 
-    # from pprint import pprint
-    # pprint(geocoded)
-
     print(
         f"{geocoded['formatted_address']:>50s}, {geocoded['geometry']['location']['lat']:6.2f}, {geocoded['geometry']['location']['lng']:6.2f}")
 
