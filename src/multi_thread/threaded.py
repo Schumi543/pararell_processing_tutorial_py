@@ -1,4 +1,5 @@
 import time
+from threading import Thread
 
 import googlemaps
 from os import environ
@@ -23,8 +24,14 @@ def fetch_place(place):
 
 
 def main():
+    threads = []
     for place in PLACES:
-        fetch_place(place)
+        thread = Thread(target=fetch_place, args=[place])
+        thread.start()
+        threads.append(thread)
+
+    while threads:
+        threads.pop().join()
 
 
 if __name__ == '__main__':
