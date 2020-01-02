@@ -35,7 +35,7 @@ def present_result(geocoded):
 
 
 def fetch_place(place):
-    return client.geocopoede(place)[0]
+    return client.geocode(place)[0]
 
 
 def main():
